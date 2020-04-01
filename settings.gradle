@@ -1,0 +1,2 @@
+rootProject.name='AndroidExercisesUSJ'
+include ':app'
