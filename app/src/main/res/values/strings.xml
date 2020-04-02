@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidExercisesUSJ</string>
+    <string name="show_hide">Show/Hide</string>
+    <string name="good_job_you_are_a_pro_android_developer">Good Job! You are a pro Android Developer :)</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
 </resources>
