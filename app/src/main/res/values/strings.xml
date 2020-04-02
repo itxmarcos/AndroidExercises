@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidExercisesUSJ</string>
+    <string name="counter">Harcoded Text</string>
 </resources>
