@@ -38,10 +38,12 @@
                 app:srcCompat="@drawable/refurb_iphone_xs_silver" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/checkBox1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="CheckBox" />
+                android:onClick="ButtonClicked"
+                android:text="iPhone XS"
+                tools:ignore="OnClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,7 +61,9 @@
                 android:id="@+id/checkBox2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="CheckBox" />
+                android:onClick="ButtonClicked"
+                android:text="iPad Pro"
+                tools:ignore="OnClick" />
 
         </LinearLayout>
 
@@ -76,11 +80,13 @@
                 app:srcCompat="@drawable/techinthebasket_apple_15_inch_macbook_pro_2019_i7_256gb_silver_1" />
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/checkBox3"
                 android:layout_width="143dp"
                 android:layout_height="127dp"
                 android:layout_weight="1"
-                android:text="CheckBox" />
+                android:onClick="ButtonClicked"
+                android:text="MacBook Pro"
+                tools:ignore="OnClick" />
         </LinearLayout>
 
     </LinearLayout>
@@ -89,7 +95,7 @@
         android:id="@+id/txt_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="108dp"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
