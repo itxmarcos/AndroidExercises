@@ -13,7 +13,8 @@ class ActivityD : AppCompatActivity() {
 
         val intent=getIntent() //get intent object and data
         val name=intent.getStringExtra("Name")
+        txtName.text="Name: "+name //insert data into TextView
 
-        txtName.text="Name: "+name
+
     }
 }
