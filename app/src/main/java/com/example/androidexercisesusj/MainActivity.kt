@@ -3,6 +3,7 @@ package com.example.androidexercisesusj
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import java.io.BufferedInputStream
 import java.io.BufferedReader
 import java.io.InputStream
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 val actors = gson.fromJson(jsonString, Array<Actor>::class.java)
                 Log.e("CONTENT: ", actors.map {
                     it.toString()
-                }).toString()
+                }.toString()).toString()
             } finally {
                 urlConnection.disconnect()
             }
