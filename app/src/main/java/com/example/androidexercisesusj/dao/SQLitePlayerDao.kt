@@ -28,19 +28,58 @@ class SQLitePlayerDao: IDao<Player> {
     }
 
     override fun delete(element: Player): Int {
-        TODO("Not yet implemented")
+        db = helper!!.writableDatabase
+        val result = db.delete(TABLE, "id = ?", arrayOf(element.id))
+        db.close()
+        return result
     }
 
     override fun findAll(): List<Player> {
-        TODO("Not yet implemented")
+        db = helper!!.readableDatabase
+        var players = mutableListOf<Player>()
+        val cursor = db.rawQuery("SELECT id, name, team, age FROM $TABLE", arrayOf())
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getString(0)
+                val name = cursor.getString(1)
+                val team = cursor.getString(2)
+                val age = cursor.getInt(3)
+                val player = Player(id, name, team, age = age)
+                players.add(player)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return players!!
     }
 
     override fun findOne(id: String): Player? {
-        TODO("Not yet implemented")
+        db = helper!!.readableDatabase
+        var player: Player? = null
+        val cursor = db.rawQuery("SELECT id, name, team, age FROM $TABLE WHERE id = ", arrayOf(id))
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getString(0)
+                val name = cursor.getString(1)
+                val team = cursor.getString(2)
+                val age = cursor.getInt(3)
+                player = Player(id, name, team, age = age)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return player!!
     }
 
     override fun update(element: Player): Int {
-        TODO("Not yet implemented")
+        db = helper!!.writableDatabase
+        val soccerPlayer = ContentValues()
+        soccerPlayer.put("age", element.age)
+        soccerPlayer.put("team", element.team)
+        soccerPlayer.put("name", element.name)
+        val result = db.update(TABLE, soccerPlayer, "id = ?", arrayOf("" + element.id))
+        db.close()
+        return result
     }
 
 }
