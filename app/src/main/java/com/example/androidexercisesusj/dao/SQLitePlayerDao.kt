@@ -24,7 +24,8 @@ class SQLitePlayerDao: IDao<Player> {
         soccerPlayer.put("name", element.name)
         db.insert(TABLE, null, soccerPlayer)
         db.close()
-        return findOne(element.id)!!
+        return element
+        //return findOne(element.id)!!
     }
 
     override fun delete(element: Player): Int {
