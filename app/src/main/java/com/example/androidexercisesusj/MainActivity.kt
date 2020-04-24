@@ -11,6 +11,8 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
+//SI DA ERROR HAY AL IMPORTAR GSON HAY QUE SINCRONIZAR EL BUILD APP GRADE DE NUEVO
+
 const val SERVER= "http://10.0.2.2"
 
 class MainActivity : AppCompatActivity() {
