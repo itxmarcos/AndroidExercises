@@ -11,11 +11,9 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-//SI DA ERROR HAY AL IMPORTAR GSON HAY QUE SINCRONIZAR EL BUILD APP GRADE DE NUEVO
-
 const val SERVER= "http://10.0.2.2"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,20 +23,26 @@ class MainActivity : AppCompatActivity() {
             //user=test&pass=1234 --> created from phpMyAdmin, not valid
             //user=test2&pass=1234 --> created from createUser.php. Returned "User created properly :)".
             //localhost won´t work because the emulator runs on another network, 10.0.2.2. We have to add an extra line in the AndroidManifest.xml to allow HTTP requests: android:usesCleartextTraffic="true"
-            var url = URL("$SERVER/mobile/user/getActora.php?user=test2&pass=1234")
-            var urlConnection = url.openConnection() as HttpURLConnection
+            var urlActor = URL("$SERVER/mobile/user/getActors.php?user=test2&pass=1234")
+
+            var urlConnectionActor = urlActor.openConnection() as HttpURLConnection
+
             try {
-                var inputStream = BufferedInputStream(urlConnection.getInputStream())
-                readStream(inputStream)
+                val inputStreamActor = BufferedInputStream(urlConnectionActor.getInputStream())
+
                 //Print the content
-                val jsonString = readStream(inputStream)
+                val jsonStringActors = readStream(inputStreamActor)
+
                 val gson = Gson()
-                val actors = gson.fromJson(jsonString, Array<Actor>::class.java)
-                Log.e("CONTENT: ", actors.map {
+
+                val actors = gson.fromJson(jsonStringActors, Array<Actor>::class.java)
+                Log.e("CONTENT: ", actors.map{
                     it.toString()
                 }.toString()).toString()
-            } finally {
-                urlConnection.disconnect()
+
+            }
+            finally {
+                urlConnectionActor.disconnect()
             }
         }).start()
     }
