@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidexercisesusj.R
 import com.example.androidexercisesusj.adapters.CustomPeopleViewHolderAdapter
 import com.example.androidexercisesusj.model.People
 import kotlinx.android.synthetic.main.activity_first.*
@@ -32,6 +31,7 @@ class SixthActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == EDIT_CODE)
             adapter.notifyDataSetChanged()
     }

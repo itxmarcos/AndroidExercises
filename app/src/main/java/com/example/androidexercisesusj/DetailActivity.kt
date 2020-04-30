@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidexercisesusj.R
 import com.example.androidexercisesusj.model.People
 import com.example.androidexercisesusj.model.Person
 import kotlinx.android.synthetic.main.activity_detail.*
